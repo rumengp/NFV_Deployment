@@ -15,11 +15,11 @@ def train():
         'env_name': "NFV-env",
         'num_envs': 1,
         'max_step': 100,
-        'state_dim': 203,
-        'action_dim': 24,
+        'state_dim': 1031,
+        'action_dim': 60,
         'if_discrete': True,
-        'nodes_path': "src/graph/internet2.nodes.csv",
-        'adj_path': "src/graph/internet2.adj.csv",
+        'nodes_path': "src/graph/small-network.edgelist.nodes",
+        'adj_path': "src/graph/small-network.edgelist",
         'nfv_path': "src/nfv/nfvs.csv"
     }
 
