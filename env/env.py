@@ -32,7 +32,12 @@ class Env:
         self.__graph.init_nodes()
         self.__creat_sfc_request()  # 随机生成一个请求
 
-        return self.__create_state(), self.__create_mask()
+        mask = self.__create_mask()
+        if sum(mask) == 0:
+            self.__creat_sfc_request()
+            mask = self.__create_mask()
+
+        return self.__create_state(), mask
 
     def step(self, action):
 
@@ -85,7 +90,7 @@ class Env:
         """
         reward = 500 if reach else -self.__graph.adj[self.__path[-1][0]][self.__cur_node]
         path_len = len(self.__path)
-        reward += 10 * (1.5 * self.__request.min_path_len - path_len)
+        reward += 50 * (self.__request.min_path_len - path_len)
         return reward
 
     def __create_mask(self):
