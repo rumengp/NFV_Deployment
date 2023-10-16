@@ -90,7 +90,7 @@ class Env:
         """
         reward = 500 if reach else -self.__graph.adj[self.__path[-1][0]][self.__cur_node]
         path_len = len(self.__path)
-        reward += 50 * (self.__request.min_path_len - path_len)
+        # reward += 50 * (self.__request.min_path_len - path_len)
         return reward
 
     def __create_mask(self):
